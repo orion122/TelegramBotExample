@@ -8,9 +8,11 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
           chat_id: from['id'],
           first_name: from['first_name'])
       user.save
+
+      ActionCable.server.broadcast 'telegram', message: "New user: #{from['first_name']}"
     end
 
-    respond_with :message, text: "Hello#{from['first_name']}"
+    respond_with :message, text: "Hello, #{from['first_name']}"
   end
 
   def help(*)
