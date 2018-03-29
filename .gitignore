@@ -23,3 +23,5 @@ config/secrets.yml
 cert.pem
 dump.rdb
 private.key
+
+/.idea
