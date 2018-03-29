@@ -2,8 +2,13 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   include Telegram::Bot::UpdatesController::MessageContext
   context_to_action!
 
-  def start(*)
-    respond_with :message, text: t('.content')
+  def start(data = nil, *)
+    user = User.new(
+                   chat_id: from['chat_id'],
+                   first_name: from['first_name'])
+    user.save
+
+    respond_with :message, text: "Hello#{from['first_name']}"
   end
 
   def help(*)
