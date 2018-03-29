@@ -12,7 +12,7 @@ install and configure nginx:
 
         server {
             listen 443 ssl;
-            server_name 195.133.196.173;
+            server_name SERVER_IP;
 
             ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
             ssl_certificate /root/telegram_bot_app/cert.pem;
