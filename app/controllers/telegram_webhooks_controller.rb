@@ -3,10 +3,12 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   context_to_action!
 
   def start(data = nil, *)
-    user = User.new(
-                   chat_id: from['chat_id'],
-                   first_name: from['first_name'])
-    user.save
+    unless User.exists?(chat_id: from['chat_id'])
+      user = User.new(
+          chat_id: from['chat_id'],
+          first_name: from['first_name'])
+      user.save
+    end
 
     respond_with :message, text: "Hello#{from['first_name']}"
   end
