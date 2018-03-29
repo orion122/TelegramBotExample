@@ -5,7 +5,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def start(data = nil, *)
     unless User.exists?(chat_id: from['chat_id'])
       user = User.new(
-          chat_id: from['chat_id'],
+          chat_id: from['id'],
           first_name: from['first_name'])
       user.save
     end
