@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329131107) do
+ActiveRecord::Schema.define(version: 20180330181720) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "send_to"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.integer  "chat_id"
@@ -19,11 +27,5 @@ ActiveRecord::Schema.define(version: 20180329131107) do
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_users_on_chat_id", unique: true
   end
-
-  user = User.new(
-      chat_id: 1,
-      first_name: 'me')
-
-  user.save
 
 end
