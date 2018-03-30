@@ -26,7 +26,5 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     user = User.where(chat_id: message['from']['id']).first
     message = user.messages.create(send_to: 1, message: message['text'])
     message.save
-
-    respond_with :message, text: message['text']
   end
 end
