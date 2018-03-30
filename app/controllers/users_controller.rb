@@ -7,5 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     @current_user = User.where(id: params[:id]).first
+
+    @messages = @current_user.messages
   end
 end

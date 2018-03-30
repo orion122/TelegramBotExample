@@ -6,4 +6,8 @@
   <% end %>
 </table>
 
+<% @messages.each do |message| %>
+<%= "#{@current_user.first_name}: #{message}" %>
+<% end %>
+
 <div id="<%= @current_user.chat_id %>"></div>
