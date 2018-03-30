@@ -20,4 +20,10 @@ ActiveRecord::Schema.define(version: 20180329131107) do
     t.index ["chat_id"], name: "index_users_on_chat_id", unique: true
   end
 
+  user = User.new(
+      chat_id: 1,
+      first_name: 'me')
+
+  user.save
+
 end
