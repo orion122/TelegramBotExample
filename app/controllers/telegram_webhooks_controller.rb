@@ -70,7 +70,10 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   end
 
   def message(message)
-    ActionCable.server.broadcast 'telegram', message: "#{message['from']['first_name']}: #{message['text']}"
+    ActionCable.server.broadcast 'telegram',
+                                 message: "#{message['from']['first_name']}: #{message['text']}",
+                                 id: message['from']['id']
+
     respond_with :message, text: t('.content', text: message['text'])
   end
 
