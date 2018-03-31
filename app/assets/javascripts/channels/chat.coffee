@@ -9,3 +9,4 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     $messages = $("##{data.id}")
     $messages.append "<p>#{data.message}</p>"
     $messages.scrollTop
+    $messages.prop('scrollHeight')
