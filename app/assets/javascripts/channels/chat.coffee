@@ -6,10 +6,10 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $messages = $("##{data.id}")
+    $messages = $("##{data.chat_id}")
     $messages.append "<p>#{data.message}</p>"
     $scroll = $('#messages')
     $scroll.scrollTop($messages.prop("scrollHeight"))
 
-  reply: (message) ->
-    @perform('reply', message: message)
+  reply: (data) ->
+    @perform('reply', message: data['me'], chat_id: data['chat_id'])

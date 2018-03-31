@@ -10,6 +10,6 @@ class ChatChannel < ApplicationCable::Channel
   def reply(data)
     ActionCable.server.broadcast 'telegram',
                                  message: data['message'],
-                                 id: 1
+                                 chat_id: data['chat_id']
   end
 end
