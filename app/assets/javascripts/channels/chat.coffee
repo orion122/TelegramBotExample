@@ -6,6 +6,6 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-  $messages = $("##{data.id}")
-  $messages.append "<p>#{data.message}</p>"
-  $messages.scrollTop
+    $messages = $("##{data.id}")
+    $messages.append "<p>#{data.message}</p>"
+    $messages.scrollTop
