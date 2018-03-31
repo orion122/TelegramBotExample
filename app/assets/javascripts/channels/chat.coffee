@@ -7,9 +7,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   received: (data) ->
     $messages = $("##{data.id}")
-    $incoming = "<p>#{data.message}</p>"
-    $outgoing = "<div id='1'></div>"
-    $messages.append $incoming + $outgoing
+    $messages.append "<p>#{data.message}</p>"
     $scroll = $('#messages')
     $scroll.scrollTop($messages.prop("scrollHeight"))
 
