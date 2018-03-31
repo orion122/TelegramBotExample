@@ -21,7 +21,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def message(message)
     ActionCable.server.broadcast 'telegram',
                                  message: "#{message['from']['first_name']}: #{message['text']}",
-                                 id: message['from']['id']
+                                 chat_id: message['from']['id']
 
 
 =begin
