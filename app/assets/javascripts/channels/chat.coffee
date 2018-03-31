@@ -8,4 +8,4 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     $messages = $("##{data.id}")
     $messages.append "<p>#{data.message}</p>"
-    $messages.animate({ scrollTop: $(document).height() }, "slow");
+    $messages.scrollTop($messages.prop("scrollHeight"));
