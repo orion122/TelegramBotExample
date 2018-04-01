@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :users
 
-  telegram_webhooks TelegramWebhooksController, :robo1bot
+  telegram_webhooks Bot1WebhooksController, :robo1bot
 end
