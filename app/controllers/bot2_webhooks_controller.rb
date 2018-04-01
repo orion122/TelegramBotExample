@@ -1,4 +1,4 @@
-class BotSecondWebhooksControllerController < ApplicationController
+class Bot2WebhooksController < Telegram::Bot::UpdatesController
   include Telegram::Bot::UpdatesController::MessageContext
   context_to_action!
 
@@ -24,7 +24,7 @@ class BotSecondWebhooksControllerController < ApplicationController
                                  chat_id: message['from']['id']
 
     user = User.where(chat_id: message['from']['id']).first
-    message = user.messages.create(message: message['text'], bot: 'robo6bot')
+    message = user.messages.create(message: message['text'], bot: 'robo1bot')
     message.save
   end
 end
