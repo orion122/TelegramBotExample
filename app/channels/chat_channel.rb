@@ -16,7 +16,11 @@ class ChatChannel < ApplicationCable::Channel
                                  message: "#{my_name}: #{msg}",
                                  chat_id: chat_id
 
+<<<<<<< HEAD
     bot = User.where(chat_id: chat_id).messages.last.bot
+=======
+    bot = User.where(chat_id: chat_id).first.messages.last.bot
+>>>>>>> 88d4b6d8798768e865ae597cfce1592fca6c9d2f
 
     if bot == 'robo1bot'
       Telegram.bots[:robo1bot].send_message(chat_id: data['chat_id'], text: msg)
