@@ -15,7 +15,7 @@ class ChatChannel < ApplicationCable::Channel
                                  message: msg,
                                  chat_id: chat_id
 
-    Telegram.bot.send_message(chat_id: data['chat_id'], text: data['message'])
+    Telegram.bot.send_message(chat_id: data['chat_id'], text: msg.split[1])
 
     user = User.where(chat_id: chat_id).first
     message = user.messages.create(incoming: false, message: msg.split[1])
