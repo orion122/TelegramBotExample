@@ -16,10 +16,8 @@ class ChatChannel < ApplicationCable::Channel
 
     Telegram.bot.send_message(chat_id: data['chat_id'], text: data['message'])
 
-=begin
     user = User.find(1)
-    message = user.messages.create(send_to: data['chat_id'], message: msg)
+    message = user.messages.create(incoming: false, message: msg)
     message.save
-=end
   end
 end
