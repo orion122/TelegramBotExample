@@ -24,7 +24,7 @@ class Bot1WebhooksController < Telegram::Bot::UpdatesController
                                  chat_id: message['from']['id']
 
     user = User.where(chat_id: message['from']['id']).first
-    message = user.messages.create(message: message['text'], bot: 'robo1bot')
+    message = user.messages.create(message: message['text'], bot: 'robo6bot')
     message.save
   end
 end
