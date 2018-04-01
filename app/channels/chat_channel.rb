@@ -16,7 +16,7 @@ class ChatChannel < ApplicationCable::Channel
                                  message: "#{my_name}: #{msg}",
                                  chat_id: chat_id
 
-    Telegram.bot.send_message(chat_id: data['chat_id'], text: msg)
+    Telegram.bots[:robo1bot].send_message(chat_id: data['chat_id'], text: msg)
 
     user = User.where(chat_id: chat_id).first
     message = user.messages.create(incoming: false, message: msg)
