@@ -1,6 +1,25 @@
 install redis
 
-add env var SECRET_KEY_BASE
+config/secrets.yml:
+```
+development: &dev
+ secret_key_base: SECRET_KEY
+ telegram:
+   bots:
+     robo1bot:
+       token: TOKEN
+       username: bot's username
+     robo6bot:
+       token: TOKEN
+       username: bot's username
+   
+production:
+  <<: *dev
+```
+
+add env var SECRET_KEY_BASE in OS
+
+rake telegram:bot:set_webhook RAILS_ENV=production CERT='cert.pem
 
 config/puma.rb add: bind "unix:///tmp/puma.sock"
 
@@ -18,8 +37,6 @@ install and configure nginx:
             ssl_certificate /root/telegram_bot_app/cert.pem;
             ssl_certificate_key /root/telegram_bot_app/private.key;
 
-
-            # Первый бот
             location /telegram/ {
                 #proxy_pass         http://127.0.0.1:3000/;
                 proxy_pass         http://puma;
