@@ -14,6 +14,7 @@
   </div>
 
   <div class="message-history" id="messages">
+    <div id="<%= @current_user.chat_id %>">
     <% @messages.each do |message| %>
       <% if message.incoming %>
         <p><%= "#{@current_user.first_name}: #{message.message}" %></p>
@@ -21,8 +22,7 @@
         <p><%= "me: #{message.message}" %></p>
       <% end %>
     <% end %>
-
-    <div id="<%= @current_user.chat_id %>"></div>
+    </div>
   </div>
 
 </div>
