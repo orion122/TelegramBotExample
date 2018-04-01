@@ -1,4 +1,4 @@
-class Bot1WebhooksController < Telegram::Bot::UpdatesController
+class BotSecondWebhooksControllerController < ApplicationController
   include Telegram::Bot::UpdatesController::MessageContext
   context_to_action!
 
