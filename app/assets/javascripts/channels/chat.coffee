@@ -12,4 +12,8 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     $scroll.scrollTop($messages.prop("scrollHeight"))
 
   reply: (data) ->
-    @perform('reply', message: data['me'], chat_id: data['chat_id'])
+    @perform('reply',
+      my_name: data['my_name'],
+      message: data['message'],
+      chat_id: data['chat_id']
+    )
