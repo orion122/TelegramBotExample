@@ -1,7 +1,24 @@
-<table>
-  <% @chats.each do |chat| %>
-    <tr>
-      <td><%= link_to chat.first_name, chat %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="main">
+
+  <div class="listings">
+    <div class="listings_channels">
+      <h2 class="listings_header">Chats</h2>
+      <ul class="channel_list">
+        <% @chats.each do |chat| %>
+          <li class="channel">
+            <%= link_to chat.first_name, chat %></span></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <h1 class="welcome">Select Chat</h1>
+
+
+</div>
+
+
+<div class="footer">
+
+</div>

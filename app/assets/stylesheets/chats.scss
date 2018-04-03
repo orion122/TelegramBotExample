@@ -360,3 +360,12 @@ main {
   min-height: 41px !important;
   padding: 9px 5px 9px 8px;
 }
+
+.welcome {
+  font-size: 50px;
+  color: #ab9ba9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
