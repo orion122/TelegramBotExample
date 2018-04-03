@@ -1,2 +1,7 @@
-<h1>Chat</h1>
-<div id="messages"></div>
+<table>
+  <% @chats.each do |chat| %>
+    <tr>
+      <td><%= link_to chat.first_name, chat %></td>
+    </tr>
+  <% end %>
+</table>

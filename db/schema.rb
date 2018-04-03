@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401142425) do
+ActiveRecord::Schema.define(version: 20180403072234) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer  "chat_id"
+    t.string   "first_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_chats_on_chat_id", unique: true
+  end
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "chat_id"
     t.boolean  "incoming",   default: true
     t.text     "message"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "bot"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.integer  "chat_id"
-    t.string   "first_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_id"], name: "index_users_on_chat_id", unique: true
   end
 
 end

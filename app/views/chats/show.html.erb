@@ -1,0 +1,35 @@
+<div class="main">
+
+  <div class="listings">
+    <div class="listings_channels">
+      <h2 class="listings_header">Chats</h2>
+      <ul class="channel_list">
+        <% @chats.each do |chat| %>
+          <li class="channel <%= 'active' if @current_chat.chat_id == chat.chat_id %>">
+            <%= link_to chat.first_name, chat %></span></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="message-history" id="messages">
+    <div id="<%= @current_chat.chat_id %>">
+      <% @messages.each do |message| %>
+        <% if message.incoming %>
+          <p><%= "#{@current_chat.first_name}: #{message.message}" %></p>
+        <% else %>
+          <p><%= "me: #{message.message}" %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="footer">
+  <div class="input-box">
+    <input type="text" class="input-box_text" id="chatid_<%= @current_chat.chat_id %>"/>
+  </div>
+</div>
