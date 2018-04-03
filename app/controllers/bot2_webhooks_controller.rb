@@ -2,7 +2,7 @@ class Bot2WebhooksController < Telegram::Bot::UpdatesController
   include Telegram::Bot::UpdatesController::MessageContext
   context_to_action!
 
-  @bot = 'robo6bot'
+  @@bot = 'robo6bot'
 
   def start(data = nil, *)
     unless Chat.exists?(chat_id: from['id'])
