@@ -12,6 +12,17 @@ development: &dev
      robo6bot:
        token: TOKEN
        username: bot's username
+       
+test:
+ secret_key_base: SECRET_KEY
+ telegram:
+   bots:
+     robo1bot:
+       token: TOKEN
+       username: bot's username
+     robo6bot:
+       token: TOKEN
+       username: bot's username
    
 production:
   <<: *dev
