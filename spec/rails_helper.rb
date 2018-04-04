@@ -56,5 +56,5 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.after { Telegram.bot.reset }
+  config.after { Telegram.bots.each_value(&:reset) }
 end

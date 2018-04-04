@@ -1,4 +1,4 @@
-RSpec.describe TelegramWebhooksController, :telegram_bot do
+RSpec.describe Bot1WebhooksController, :telegram_bot do
   def reply
     bot.requests[:sendMessage].last
   end
