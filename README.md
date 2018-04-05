@@ -4,9 +4,9 @@ Result [here](http://195.133.196.173:3000/)
 ## Installations and configuring
 
 
-install redis
+- install redis
 
-config/secrets.yml:
+- config/secrets.yml:
 ```
 development: &dev
  secret_key_base: SECRET_KEY
@@ -34,13 +34,13 @@ production:
   <<: *dev
 ```
 
-add env var SECRET_KEY_BASE in OS
+- add env var SECRET_KEY_BASE in OS
 
-rake telegram:bot:set_webhook RAILS_ENV=production CERT='cert.pem
+- rake telegram:bot:set_webhook RAILS_ENV=production CERT='cert.pem
 
-config/puma.rb add: bind "unix:///tmp/puma.sock"
+- config/puma.rb add: bind "unix:///tmp/puma.sock"
 
-install and configure nginx:
+- install and configure nginx:
 ```
 upstream puma {
     server unix:///tmp/puma.sock fail_timeout=0;
