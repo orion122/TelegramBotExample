@@ -66,3 +66,4 @@ server {
 
 }
 ```
+- migrate for tests: ```rails db:test:prepare```
