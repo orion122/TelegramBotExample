@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "chats#index"
+
   resources :chats
 
   telegram_webhooks Bot1WebhooksController, :robo1bot
