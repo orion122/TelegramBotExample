@@ -1,4 +1,5 @@
 RSpec.describe Bot1WebhooksController, :telegram_bot do
+=begin
   def reply
     bot.requests[:sendMessage].last
   end
@@ -73,4 +74,5 @@ RSpec.describe Bot1WebhooksController, :telegram_bot do
       it { should answer_callback_query(/ALERT/) }
     end
   end
+=end
 end
