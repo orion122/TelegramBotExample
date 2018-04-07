@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   def show
     @chats = Chat.all
 
-    @current_chat = Chat.where(id: params[:id]).first
+    @current_chat = Chat.find(params[:id])
 
     @messages = @current_chat.messages
   end
