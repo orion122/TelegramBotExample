@@ -3,6 +3,11 @@ require 'rails_helper'
 RSpec.describe ChatsController, type: :controller do
 
   describe "GET #index" do
+    it "returns success response" do
+      get :index
+      expect(response).to be_success
+    end
+
     it "returns index template" do
       get :index
       expect(response).to render_template("index")
