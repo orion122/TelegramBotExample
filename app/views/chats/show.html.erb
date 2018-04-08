@@ -1,35 +1,27 @@
-<div class="main">
+<% content_for :chats do %>
+  <% @chats.each do |chat| %>
+    <li class="channel <%= 'active' if @current_chat.chat_id == chat.chat_id %>">
+      <%= link_to chat.first_name, chat %>
+    </li>
+  <% end %>
+<% end %>
 
-  <div class="listings">
-    <div class="listings_channels">
-      <h2 class="listings_header">Chats</h2>
-      <ul class="channel_list">
-        <% @chats.each do |chat| %>
-          <li class="channel <%= 'active' if @current_chat.chat_id == chat.chat_id %>">
-            <%= link_to chat.first_name, chat %></span></a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 
-  <div class="message-history" id="messages">
-    <div id="<%= @current_chat.chat_id %>">
-      <% @messages.each do |message| %>
-        <% if message.incoming %>
-          <p><%= "#{@current_chat.first_name}: #{message.message}" %></p>
-        <% else %>
-          <p><%= "me: #{message.message}" %></p>
-        <% end %>
+<% content_for :message_history do %>
+  <div id="<%= @current_chat.chat_id %>">
+    <% @messages.each do |message| %>
+      <% if message.incoming %>
+        <p><%= "#{@current_chat.first_name}: #{message.message}" %></p>
+      <% else %>
+        <p><%= "me: #{message.message}" %></p>
       <% end %>
-    </div>
+    <% end %>
   </div>
+<% end %>
 
-</div>
 
-
-<div class="footer">
+<% content_for :footer do %>
   <div class="input-box">
     <input type="text" class="input-box_text" id="chatid_<%= @current_chat.chat_id %>"/>
   </div>
-</div>
+<% end %>

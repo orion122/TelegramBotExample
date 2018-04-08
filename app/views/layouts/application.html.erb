@@ -10,5 +10,23 @@
 
   <body>
     <%= yield %>
+    <div class="main">
+      <div class="listings">
+        <div class="listings_channels">
+          <h2 class="listings_header">Chats</h2>
+          <ul class="channel_list">
+            <%= yield :chats %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="message-history" id="messages">
+        <%= yield :message_history %>
+      </div>
+    </div>
+
+    <div class="footer">
+      <%= yield :footer %>
+    </div>
   </body>
 </html>
