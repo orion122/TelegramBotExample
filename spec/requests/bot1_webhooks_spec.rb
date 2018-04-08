@@ -1,4 +1,4 @@
-RSpec.describe Bot1WebhooksController, :telegram_bot do
+RSpec.describe Bot1WebhooksController, :robo1bot do
 =begin
   def reply
     bot.requests[:sendMessage].last
@@ -7,7 +7,7 @@ RSpec.describe Bot1WebhooksController, :telegram_bot do
 
   describe '#start' do
     subject { -> { dispatch_command :start } }
-    it { should respond_with_message "Hello, #{from['first_name']}" }
+    it { should respond_with_message "Hello, " }
   end
 
 
