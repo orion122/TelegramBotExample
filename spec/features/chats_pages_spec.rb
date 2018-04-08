@@ -19,7 +19,7 @@ RSpec.feature "Visiting the chats page", type: :feature do
         chat_id: "123456",
         first_name: "Pavel"
     )
-    visit "chats/#{chat.id}"
+    visit chats_path(chat)
     expect(page).to have_text(chat.first_name)
   end
 end
