@@ -1,13 +1,13 @@
+require 'telegram/bot/updates_controller/rspec_helpers'
+
 RSpec.describe Bot1WebhooksController, :robo1bot do
-=begin
-  def reply
-    bot.requests[:sendMessage].last
-  end
-=end
+  include_context 'telegram/bot/integration'
+  include_context 'telegram/bot/updates_controller'
+
 
   describe '#start' do
     subject { -> { dispatch_command :start } }
-    it { should respond_with_message "Hello, " }
+    it { should respond_with_message "Hello, #{from['first_name']}" }
   end
 
 
