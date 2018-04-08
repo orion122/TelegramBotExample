@@ -1,11 +1,7 @@
-### Result [here](http://195.133.196.173:3000/)
+## Result [here](http://195.133.196.173:3000/)
 
 
 ## Installations and configuring
-
-
-- install redis
-
 - config/secrets.yml:
 ```
 development: &dev
@@ -66,4 +62,12 @@ server {
 
 }
 ```
+
+- install redis
+
+## Tests
 - migrate for tests: ```rails db:test:prepare```
+- run tests: ```rspec```
+
+## Run
+```puma -d -C config/puma.rb```
