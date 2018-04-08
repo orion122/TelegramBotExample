@@ -7,7 +7,7 @@
 <% end %>
 
 
-<% content_for :message_history do %>
+<% content_for :messages_history do %>
   <div id="<%= @current_chat.chat_id %>">
     <% @messages.each do |message| %>
       <% if message.incoming %>
