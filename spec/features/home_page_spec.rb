@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Visiting the home page", type: :feature do
-  scenario "The visitor should see a 'Select Chat'" do
+  scenario "The visitor should see a 'Select a Chat'" do
     visit root_path
-    expect(page).to have_text("Select Chat")
+    expect(page).to have_text("Select a Chat")
   end
 end
