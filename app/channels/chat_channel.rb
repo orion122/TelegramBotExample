@@ -12,10 +12,6 @@ class ChatChannel < ApplicationCable::Channel
     msg = data['message']
     chat_id = data['chat_id']
 
-    ActionCable.server.broadcast 'telegram',
-                                 message: "#{my_name}: #{msg}",
-                                 chat_id: chat_id
-
     bot = Chat.where(chat_id: chat_id).first.messages.where(incoming: true).last.bot
 
     if bot == 'robo1bot'
@@ -24,6 +20,9 @@ class ChatChannel < ApplicationCable::Channel
       Telegram.bots[:robo6bot].send_message(chat_id: data['chat_id'], text: msg)
     end
 
+    ActionCable.server.broadcast 'telegram',
+                                 message: "#{my_name}: #{msg}",
+                                 chat_id: chat_id
 
     chat = Chat.where(chat_id: chat_id).first
     message = chat.messages.create(incoming: false, message: msg)
