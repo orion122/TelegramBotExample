@@ -9,16 +9,12 @@ class ChatChannel < ApplicationCable::Channel
 
   def reply(data)
     my_name = data['my_name']
-    msg = data['message']
+    msg     = data['message']
     chat_id = data['chat_id']
 
     last_bot = Chat.last_bot(chat_id)
 
-    if last_bot == 'robo1bot'
-      Telegram.bots[:robo1bot].send_message(chat_id: data['chat_id'], text: msg)
-    else
-      Telegram.bots[:robo6bot].send_message(chat_id: data['chat_id'], text: msg)
-    end
+    Telegram.bots[last_bot.to_sym].send_message(chat_id: data['chat_id'], text: msg)
 
     ActionCable.server.broadcast 'telegram',
                                  message: "#{my_name}: #{msg}",
