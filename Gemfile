@@ -46,6 +46,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'rails-controller-testing'
+  gem 'action-cable-testing'
 end
 
 group :development do
