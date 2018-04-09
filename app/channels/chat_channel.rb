@@ -12,7 +12,7 @@ class ChatChannel < ApplicationCable::Channel
     msg = data['message']
     chat_id = data['chat_id']
 
-    last_bot = Chat.last_bot
+    last_bot = Chat.last_bot(chat_id)
 
     if last_bot == 'robo1bot'
       Telegram.bots[:robo1bot].send_message(chat_id: data['chat_id'], text: msg)
