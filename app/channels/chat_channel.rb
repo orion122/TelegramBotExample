@@ -14,7 +14,7 @@ class ChatChannel < ApplicationCable::Channel
 
     last_bot = Chat.last_bot(chat_id)
 
-    #Telegram.bots[last_bot.to_sym].send_message(chat_id: data['chat_id'], text: msg)
+    Telegram.bots[last_bot.to_sym].send_message(chat_id: data['chat_id'], text: msg)
 
 =begin
     ActionCable.server.broadcast 'telegram',
