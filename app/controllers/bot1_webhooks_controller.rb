@@ -22,9 +22,11 @@ class Bot1WebhooksController < Telegram::Bot::UpdatesController
 
 
   def message(message)
+=begin
     ActionCable.server.broadcast 'telegram',
                                  message: "#{message['from']['first_name']}: #{message['text']}",
                                  chat_id: message['from']['id']
+=end
 
     chat = Chat.where(chat_id: message['from']['id']).first
     message = chat.messages.create(message: message['text'], bot: @@bot)
