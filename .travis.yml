@@ -6,15 +6,15 @@ before_install: gem install bundler
 
 env:
   test:
-    secret_key_base: VERY_SECRET_KEY
+    - secret_key_base=VERY_SECRET_KEY
     telegram:
       bots:
         robo1bot:
-          token: VERY_SECRET_KEY
-          username: Robo1Bot
+          - token=VERY_SECRET_KEY
+          - username=Robo1Bot
         robo6bot:
-          token: VERY_SECRET_KEY
-          username: Robo6Bot
+          - token=VERY_SECRET_KEY
+          - username=Robo6Bot
 
 script:
   - bin/rake db:migrate RAILS_ENV=test
