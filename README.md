@@ -67,7 +67,7 @@ server {
 - install redis
 
 ## Tests
-- migrate for tests: ```rails db:test:prepare```
+- migrate for tests: ```bin/rake db:migrate RAILS_ENV=test```
 - run tests: ```rspec```
 
 ## Run
