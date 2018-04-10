@@ -2,7 +2,7 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    first_name = message.incoming ? 'me' : message.chat.first_name
+    first_name = message.incoming ? message.chat.first_name : 'me'
 
     ActionCable.server.broadcast 'telegram',
                                  message: "#{first_name}: #{message.message}",
