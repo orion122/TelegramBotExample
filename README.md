@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/orion122/TelegramBotExample.svg?branch=master)](https://travis-ci.org/orion122/TelegramBotExample)
 ## Result [here](http://195.133.196.173:3000/)
 
 
