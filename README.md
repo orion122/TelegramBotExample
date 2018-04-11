@@ -1,7 +1,13 @@
-## Result [here](http://195.133.196.173:3000/)
+## Описание
+Пользователи пишут в телеграм бот, мы видим эти сообщения на фронте и отвечаем им на эти сообщения.
+Слева список контактов. По клику на пользователя справа открывается история переписки и внизу есть поле для ответа. Новые сообщения от пользователей подгружаются по вебсокету с бекенда.
+Пользователи могут писать двум ботам: http://t.me/Robo1Bot и http://t.me/Robo6Bot
+
+## Результат
+[Ссылка на результат](http://195.133.196.173:3000/)
 
 
-## Installations and configuring
+## Установка, настройка
 - config/secrets.yml:
 ```
 development: &dev
@@ -30,13 +36,13 @@ production:
   <<: *dev
 ```
 
-- add env var SECRET_KEY_BASE in OS
+- добавить в переменные окружения ОС переменную SECRET_KEY_BASE с токеном бота перед настройкой webhook
 
-- rake telegram:bot:set_webhook RAILS_ENV=production CERT='cert.pem
+- настройка webhook: `rake telegram:bot:set_webhook RAILS_ENV=production CERT='cert.pem`
 
-- config/puma.rb add: bind "unix:///tmp/puma.sock"
+- в config/puma.rb добавить `bind "unix:///tmp/puma.sock"`
 
-- install and configure nginx:
+- настройка nginx:
 ```
 upstream puma {
     server unix:///tmp/puma.sock fail_timeout=0;
@@ -63,11 +69,11 @@ server {
 }
 ```
 
-- install redis
+- установить redis: `sudo apt install redis`
 
-## Tests
-- migrate for tests: ```bin/rake db:migrate RAILS_ENV=test```
-- run tests: ```rspec```
+## Тесты
+- создание миграций для тестов: ```bin/rake db:migrate RAILS_ENV=test```
+- запуск тестов: ```bin/rspec```
 
-## Run
+## Запуск
 ```puma -d -C config/puma.rb```
